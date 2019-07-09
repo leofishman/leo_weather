@@ -1,0 +1,9 @@
+name: 'leo_wheather'
+type: module
+description: 'Basic weather  system'
+core: 8.x
+dependencies:
+  - node
+  - block
+package: 'Custom'
+version: '8.x-1.0'
