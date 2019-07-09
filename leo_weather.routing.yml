@@ -5,3 +5,13 @@ leo_weather.settings:
     _title: 'Openweather app id setting'
   requirements:
     _permission: 'administer openweather settings'
+
+leo_weather.weather:
+  path: '/api/weather'
+  defaults:
+    _controller: '\Drupal\leo_weather\Controller\weatherController::weather'
+    _title: 'Current weather'
+  requirements:
+    _permission: 'access content'
+
+

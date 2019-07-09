@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Template for the weather page for current weather.
+ * Available variables:
+ * - leo_weather_detail: array of weather list.
+ */
+#}
+<div class="leo-weather-container">
+  <div class="leo-weather-list">
+    {% if (leo_weather_detail.name) and (leo_weather_detail.country) %}
+    <div class="city"><h3>{{ leo_weather_detail.name }}, {{ leo_weather_detail.country }}</h3></div>
+    {% elseif (leo_weather_detail.name) %}
+    <div class="city"><h3>{{ leo_weather_detail.name }}</h3></div>
+    {% elseif (leo_weather_detail.country) %}
+    <div class="city"><h3>{{ leo_weather_detail.country }}</h3></div>
+    {% endif %}
+    {% if (leo_weather_detail.weather.image) %}
+    <div class="weather-icon">
+      <span class="data"><img src="http://openweathermap.org/img/w/{{ leo_weather_detail.weather.image }}.png"/></span>
+    </div>
+    {% endif %}
+    {% if(leo_weather_detail.temp) %}
+    <div class="temperature">
+      <span class="label">Temp: {{ leo_weather_detail.temp }}</span>
+    </div>
+    {% endif %}
+    {% if (leo_weather_detail.weather.desc) %}
+    <div class="weather-datail">
+      <span class="label">{{ leo_weather_detail.weather.desc }}</span>
+    </div>
+    {% endif %}
+    {% if(leo_weather_detail.humidity) %}
+    <div class="humidity">
+      <span class="label"> Humidity {{ leo_weather_detail.humidity }}</span>
+    </div>
+    {% endif %}
+    {% if(leo_weather_detail.temp_max) %}
+    <div class="maximum-temprature">
+      <span class="label"> H {{ leo_weather_detail.temp_max }}</span>
+    </div>
+    {% endif %}
+    {% if(leo_weather_detail.temp_min) %}
+    <div class="minimum-tempreature">
+      <span class="label"> L {{ leo_weather_detail.temp_min }}</span>
+    </div>
+    {% endif %}
+    <div class="leo-weather-option">
+      {% if(leo_weather_detail.pressure) %}
+      <div class="pressure leo-weather-row">
+        <span class="label"> pressure <br> {{ leo_weather_detail.pressure }} hpa</span>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>

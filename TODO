@@ -1,6 +1,5 @@
-- Configuration form
-    - openweather api key
-- Webservice service to consult openweather api
+
+
     - Ambiguity handle when more than one city name exist
     - error handle
 - form to input city
@@ -12,3 +11,10 @@
     - stringify cities+country array to save value
     - when a city is deleted, rebuild the array and save it right then
 - controller to get the saved cities clicked
+
+
+DONE
+
+- Configuration form
+    - openweather api key
+ - Webservice service to consult openweather api
