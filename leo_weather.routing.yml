@@ -1,0 +1,7 @@
+leo_weather.settings:
+  path: '/admin/config/services/leo_weather'
+  defaults:
+    _form: '\Drupal\leo_weather\Form\ConfigForm'
+    _title: 'Openweather app id setting'
+  requirements:
+    _permission: 'administer openweather settings'

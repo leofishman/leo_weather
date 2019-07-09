@@ -1,0 +1,3 @@
+'administer openweather settings':
+  title: Administer openweather settings
+  description: Requires permission to configure openweather app id.

@@ -1,0 +1,5 @@
+leo_weather.settings:
+  title: Openweather config
+  description: 'Configure to add the appid value.'
+  route_name: leo_weather.settings
+  parent: system.admin_config_services
