@@ -3,7 +3,7 @@
     - Ambiguity handle when more than one city name exist
 
 - create route to show the form, the last 5 cities from localstorage, the map and the rest of the info
-- leaflet maps with city coordenates
+
 - save last 5 cities on localstorage (city, country)
 - show last 5 cities on city input form, let the user delete a saved city
     - escape characters
@@ -20,3 +20,4 @@ DONE
 
      - error handle
  - form to input city
+ - leaflet maps with city coordenates
