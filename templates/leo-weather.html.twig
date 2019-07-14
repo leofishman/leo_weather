@@ -59,5 +59,16 @@
       {% endif %}
 
     </div>
+
+
+    {% if(leo_weather_detail.lat) %}
+      <div class="coord lat leo-weather-row" id="lat">
+        {{ leo_weather_detail.lat }}
+      </div>
+      <div class="coord lon leo-weather-row" id="lon">
+        {{ leo_weather_detail.lon }}
+      </div>
+      <div id="mapid"></div>
+    {% endif %}
   </div>
 </div>

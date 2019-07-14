@@ -110,8 +110,11 @@ class weatherController extends ControllerBase {
                 $html['weather']['desc'] = $output->weather[0]->description;
                 $html['weather']['image'] = $output->weather[0]->icon;
                 $html['country'] = $output->sys->country;
+                $html['lat'] = $output->coord->lat;
+                $html['lon'] = $output->coord->lon;
             }
-
+            //print '<pre>';
+            //print_r($html);die;
 
         }
 
@@ -123,7 +126,9 @@ class weatherController extends ControllerBase {
             '#leo_weather_detail' => $html,
             '#attached' => array(
                 'library' => array(
+                    'leo_weather/leo_weather_map',
                     'leo_weather/leo_weather_theme',
+                   // 'leaflet/leaflet',
                 ),
             ),
             '#cache' => array('max-age' => 0),

@@ -2,4 +2,18 @@ leo_weather_theme:
   version: 8.x
   css:
     base:
-      css/leo_weather.css: {}
+      assets/css/leo_weather.css: {}
+  js:
+    assets/js/leo_weather.js: {}
+  dependencies:
+    - core/jquery
+
+leo_weather_map:
+  version: 8.x
+  css:
+    base:
+      'https://unpkg.com/leaflet@1.5.1/dist/leaflet.css': {type: external}
+  js:
+    'https://unpkg.com/leaflet@1.5.1/dist/leaflet.js': {type: external}
+  dependencies:
+    - core/jquery

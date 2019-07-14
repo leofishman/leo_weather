@@ -1,3 +1,13 @@
+#mapid {
+  height: 250px;
+  position: relative;
+  margin-top: 30px;
+
+}
+
+.coord {
+ display: none;
+}
 .leo-weather-container {
   display: inline;
   width: 100%;
