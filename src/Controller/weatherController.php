@@ -113,9 +113,6 @@ class weatherController extends ControllerBase {
                 $html['lat'] = $output->coord->lat;
                 $html['lon'] = $output->coord->lon;
             }
-            //print '<pre>';
-            //print_r($html);die;
-
         }
 
         $search_form = '\Drupal\leo_weather\Form\SearchForm';
