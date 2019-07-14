@@ -7,10 +7,11 @@ leo_weather.settings:
     _permission: 'administer openweather settings'
 
 leo_weather.weather:
-  path: '/api/weather'
+  path: '/api/weather/{city}'
   defaults:
     _controller: '\Drupal\leo_weather\Controller\weatherController::weather'
     _title: 'Current weather'
+    city: ''
   requirements:
     _permission: 'access content'
 

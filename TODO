@@ -1,10 +1,9 @@
 
 
     - Ambiguity handle when more than one city name exist
-    - error handle
-- form to input city
+
 - create route to show the form, the last 5 cities from localstorage, the map and the rest of the info
-- leafleet maps with city coordenates
+- leaflet maps with city coordenates
 - save last 5 cities on localstorage (city, country)
 - show last 5 cities on city input form, let the user delete a saved city
     - escape characters
@@ -18,3 +17,6 @@ DONE
 - Configuration form
     - openweather api key
  - Webservice service to consult openweather api
+
+     - error handle
+ - form to input city

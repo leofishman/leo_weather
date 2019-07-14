@@ -7,7 +7,13 @@
  */
 #}
 <div class="leo-weather-container">
+  <div class="search-city">
+    {# kint(leo_weather_detail)
+    #}
+    {{ leo_weather_detail.form }}
+  </div>
   <div class="leo-weather-list">
+
     {% if (leo_weather_detail.name) and (leo_weather_detail.country) %}
     <div class="city"><h3>{{ leo_weather_detail.name }}, {{ leo_weather_detail.country }}</h3></div>
     {% elseif (leo_weather_detail.name) %}

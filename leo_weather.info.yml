@@ -3,7 +3,7 @@ type: module
 description: 'Basic weather  system'
 core: 8.x
 dependencies:
-  - node
+  - leaflet
 package: 'Custom'
 version: '8.x-1.0'
 configure: leo_weather.settings

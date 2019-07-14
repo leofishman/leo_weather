@@ -70,7 +70,8 @@ class weatherController extends ControllerBase {
         }
         catch (GuzzleException $e) {
             watchdog_exception('leo_weather', $e);
-            return [];
+
+            return ['error' => $e->getMessage(), 'code' => $e->getResponse()->getStatusCode(), 'options' => $options];
         }
 
         return $response->getBody()->getContents();
@@ -84,23 +85,39 @@ class weatherController extends ControllerBase {
     * @return json
     *   Return weather json.
     */
-    public function weather()
+    public function weather($city)
     {
-      $options['city_name'] = 'Buenos Aires';
-      $output = json_decode($this->getWeatherInformation($options));
 
-        $html['temp'] = round($output->main->temp) . '°C';
-        $html['name'] = $output->name;
-        $html['humidity'] = $output->main->humidity . '%';
-        $html['pressure'] = $output->main->pressure;
-        $html['temp_max'] = round($output->main->temp_max) . '°C';
-        $html['temp_min'] = round($output->main->temp_min) . '°C';
-        $html['weather']['desc'] = $output->weather[0]->description;
-        $html['weather']['image'] = $output->weather[0]->icon;
-        $html['country'] = $output->sys->country;
+        if ($city != '') {
+            $options['city_name'] = $city;
+            $check_weather = $this->getWeatherInformation($options);
 
-//print '<pre>';
-//var_dump($output->name, $html);die;
+
+            if (array_key_exists('error', $check_weather)){
+                $error_response =json_decode(substr($check_weather['error'],strpos($check_weather['error'],'response:')+9));
+
+                $messenger = \Drupal::messenger();
+                $messenger->addError('Error: ' . $error_response->cod . ' - ' . $error_response->message . ' ' . $check_weather['options']['city_name']);
+            } else{
+                $output = json_decode($check_weather);
+
+                $html['temp'] = round($output->main->temp) . '°C';
+                $html['name'] = $output->name;
+                $html['humidity'] = $output->main->humidity . '%';
+                $html['pressure'] = $output->main->pressure;
+                $html['temp_max'] = round($output->main->temp_max) . '°C';
+                $html['temp_min'] = round($output->main->temp_min) . '°C';
+                $html['weather']['desc'] = $output->weather[0]->description;
+                $html['weather']['image'] = $output->weather[0]->icon;
+                $html['country'] = $output->sys->country;
+            }
+
+
+        }
+
+        $search_form = '\Drupal\leo_weather\Form\SearchForm';
+        $html['form']['render_element'] = 'form';
+        $html['form'] = \Drupal::formBuilder()->getForm($search_form, $city);
         $build[] = [
             '#theme' => 'leo_weather',
             '#leo_weather_detail' => $html,
@@ -111,6 +128,8 @@ class weatherController extends ControllerBase {
             ),
             '#cache' => array('max-age' => 0),
         ];
+
+
 
         return $build;
     }
