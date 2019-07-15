@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/../../../core" />
+      <path value="$PROJECT_DIR$/../leo_quiz" />
+      <path value="$PROJECT_DIR$/../../contrib" />
+    </include_path>
+  </component>
+</project>
